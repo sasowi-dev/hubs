@@ -1,12 +1,12 @@
 /* eslint-disable @calm/react-intl/missing-formatted-message */
-import React, { useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { FormattedMessage, useIntl } from "react-intl";
 import configs from "../utils/configs";
 import IfFeature from "./if-feature";
 import styles from "../assets/stylesheets/scene-ui.scss";
-import { createAndRedirectToNewHub, getReticulumFetchUrl } from "../utils/phoenix-utils";
+import { getReticulumFetchUrl } from "../utils/phoenix-utils";
 import { ReactComponent as HmcLogo } from "./icons/HmcLogo.svg";
 import { ReactComponent as Twitter } from "./icons/Twitter.svg";
 import { ReactComponent as Pen } from "./icons/Pen.svg";
@@ -26,34 +26,21 @@ export default {
 // TODO: use storybook args/controls instead of booleans in props
 
 export const SceneUI = ({
-  scene,
-  sceneLoaded,
-  sceneUrl,
-  unavailable,
-  showCreateRoom = true,
+  showCreateRoom,
   sceneAttributions,
   sceneScreenshotURL,
   sceneName,
+  sceneLoaded = true,
   isOwner = true,
   sceneProjectId,
   sceneId,
   sceneAllowRemixing = true
 }) => {
   const isHmc = configs.feature("show_cloud");
+  showCreateRoom = true;
   const intl = useIntl();
-  const tweetText = intl.formatMessage(
-    {
-      id: "scene-page.default-tweet",
-      defaultMessage: "{sceneName} in {shareHashtag}"
-    },
-    {
-      sceneName: sceneName,
-      shareHashtag: configs.translation("share-hashtag")
-    }
-  );
-  const tweetLink = `https://twitter.com/share?url=${encodeURIComponent(sceneUrl)}&text=${encodeURIComponent(
-    tweetText
-  )}`;
+
+  const tweetLink = `https://twitter.com/`;
 
   const unknown = intl.formatMessage({ id: "scene-page.unknown", defaultMessage: "unknown" });
 
@@ -76,18 +63,7 @@ export const SceneUI = ({
         <FormattedMessage
           id="scene-page.remix-attribution"
           defaultMessage="(Remixed from <a>{name} by {author}</a>)"
-          values={{
-            name: _name,
-            author: _author,
-            a: chunks =>
-              url ? (
-                <a href={url} target="_blank" rel="noopener noreferrer">
-                  {chunks}
-                </a>
-              ) : (
-                <>{chunks}</>
-              )
-          }}
+          values={{ name: _name, author: _author }}
         />
       </span>;
     } else if (source) {
@@ -96,19 +72,7 @@ export const SceneUI = ({
           <FormattedMessage
             id="scene-page.attribution-with-source"
             defaultMessage="<a>{name} by {author} on {source}</a>"
-            values={{
-              name: _name,
-              author: _author,
-              source,
-              a: chunks =>
-                url ? (
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    {chunks}
-                  </a>
-                ) : (
-                  <>{chunks}</>
-                )
-            }}
+            values={{ name: _name, author: _author, source: source }}
           />
         </span>
       );
@@ -118,18 +82,7 @@ export const SceneUI = ({
           <FormattedMessage
             id="scene-page.attribution"
             defaultMessage="<a>{name} by {author}</a>"
-            values={{
-              name: _name,
-              author: _author,
-              a: chunks =>
-                url ? (
-                  <a href={url} target="_blank" rel="noopener noreferrer">
-                    {chunks}
-                  </a>
-                ) : (
-                  <>{chunks}</>
-                )
-            }}
+            values={{ name: _name, author: _author }}
           />
         </span>
       );
@@ -241,13 +194,7 @@ export const SceneUI = ({
             <FormattedMessage
               id="scene-page.made-with"
               defaultMessage="made with <a/>"
-              values={{
-                a: () => (
-                  <a href="/spoke">
-                    <img src={configs.image("editor_logo")} />
-                  </a>
-                )
-              }}
+              values={{ name: "custom spoke name" }}
             />
           </div>
         </div>
@@ -266,4 +213,21 @@ export const NotAvailable = () => {
       </div>
     </div>
   );
+};
+
+SceneUI.propTypes = {
+  intl: PropTypes.object,
+  scene: PropTypes.object,
+  sceneLoaded: PropTypes.bool,
+  sceneId: PropTypes.string,
+  sceneName: PropTypes.string,
+  sceneDescription: PropTypes.string,
+  sceneAttributions: PropTypes.object,
+  sceneScreenshotURL: PropTypes.string,
+  sceneProjectId: PropTypes.string,
+  sceneAllowRemixing: PropTypes.bool,
+  showCreateRoom: PropTypes.bool,
+  unavailable: PropTypes.bool,
+  isOwner: PropTypes.bool,
+  parentScene: PropTypes.object
 };

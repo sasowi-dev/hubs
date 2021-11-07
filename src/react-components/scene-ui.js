@@ -9,6 +9,7 @@ import { createAndRedirectToNewHub, getReticulumFetchUrl } from "../utils/phoeni
 import { ReactComponent as HmcLogo } from "./icons/HmcLogo.svg";
 import { ReactComponent as Twitter } from "../icons/SocialTwitter.svg";
 import { ReactComponent as CodeBranch } from "./icons/CodeBranch.svg";
+import { ReactComponent as Pen } from "./icons/Pen.svg";
 
 class SceneUI extends Component {
   static propTypes = {
