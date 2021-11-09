@@ -15,10 +15,6 @@ import { ReactComponent as CodeBranch } from "./icons/CodeBranch.svg";
 export default {
   title: "ScenePreview/SceneUI",
   parameters: {
-    design: {
-      type: "figma",
-      url: "https://www.figma.com/file/J6YKkb2vWDlk81zm4kxUzA/Hubs-discoverability-and-onboarding?node-id=903%3A1324"
-    },
     layout: "fullscreen"
   }
 };
