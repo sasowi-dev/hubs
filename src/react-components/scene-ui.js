@@ -7,7 +7,7 @@ import IfFeature from "./if-feature";
 import styles from "../assets/stylesheets/scene-ui.scss";
 import { createAndRedirectToNewHub, getReticulumFetchUrl } from "../utils/phoenix-utils";
 import { ReactComponent as HmcLogo } from "./icons/HmcLogo.svg";
-import { ReactComponent as Twitter } from "../icons/SocialTwitter.svg";
+import { ReactComponent as Twitter } from "./icons/Twitter.svg";
 import { ReactComponent as CodeBranch } from "./icons/CodeBranch.svg";
 import { ReactComponent as Pen } from "./icons/Pen.svg";
 
