@@ -23,14 +23,25 @@ export default {
 
 export const SceneUI = ({
   showCreateRoom,
-  sceneAttributions,
+  sceneAttributions = {
+    content: [
+      {
+        title: "Mock title",
+        name: "A Reasonable Space Name",
+        author: "Arthur Arthortuitus",
+        url: "https://uploads-prod.reticulum.io/files/a1420db8-9cf0-470c-9820-7b880e3509f0.glb"
+      }
+    ],
+    creator: "Hubs Team"
+  },
   sceneScreenshotURL,
   sceneName,
   sceneLoaded = true,
   isOwner = true,
   sceneProjectId,
   sceneId,
-  sceneAllowRemixing = true
+  sceneAllowRemixing = true,
+  remix
 }) => {
   const isHmc = configs.feature("show_cloud");
   showCreateRoom = true;
@@ -42,9 +53,8 @@ export const SceneUI = ({
 
   let attributions;
 
-  const toAttributionSpan = ({ title, name, url, author, remix }) => {
+  const toAttributionSpan = () => {
     let source = "";
-
     if (!author && !url) {
       return null;
     }
@@ -59,7 +69,18 @@ export const SceneUI = ({
         <FormattedMessage
           id="scene-page.remix-attribution"
           defaultMessage="(Remixed from <a>{name} by {author}</a>)"
-          values={{ name: _name, author: _author }}
+          values={{
+            name: _name,
+            author: _author,
+            a: chunks =>
+              url ? (
+                <a href={url} target="_blank" rel="noopener noreferrer">
+                  {chunks}
+                </a>
+              ) : (
+                <>{chunks}</>
+              )
+          }}
         />
       </span>;
     } else if (source) {
@@ -68,7 +89,19 @@ export const SceneUI = ({
           <FormattedMessage
             id="scene-page.attribution-with-source"
             defaultMessage="<a>{name} by {author} on {source}</a>"
-            values={{ name: _name, author: _author, source: source }}
+            values={{
+              name: _name,
+              author: _author,
+              source,
+              a: chunks =>
+                url ? (
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    {chunks}
+                  </a>
+                ) : (
+                  <>{chunks}</>
+                )
+            }}
           />
         </span>
       );
@@ -78,12 +111,24 @@ export const SceneUI = ({
           <FormattedMessage
             id="scene-page.attribution"
             defaultMessage="<a>{name} by {author}</a>"
-            values={{ name: _name, author: _author }}
+            values={{
+              name: _name,
+              author: _author,
+              a: chunks =>
+                url ? (
+                  <a href={url} target="_blank" rel="noopener noreferrer">
+                    {chunks}
+                  </a>
+                ) : (
+                  <>{chunks}</>
+                )
+            }}
           />
         </span>
       );
     }
   };
+
   if (sceneAttributions) {
     if (!sceneAttributions.extras) {
       attributions = (
@@ -99,11 +144,14 @@ export const SceneUI = ({
               ""
             )}
           </span>
-
+          {toAttributionSpan({
+            name: sceneAttributions.content.name,
+            url: sceneAttributions.content.url,
+            author: sceneAttributions.content.author,
+            remix: true
+          })}
           <br />
-          <div className={styles.attribution}>
-            {sceneAttributions.content && sceneAttributions.content.map(toAttributionSpan)}
-          </div>
+          <div className={styles.attribution}>{toAttributionSpan}</div>
         </span>
       );
     } else {

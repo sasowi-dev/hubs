@@ -13,7 +13,7 @@
 }
 
 :local(.whiteOverlay) {
-  background-color: theme.$background1-color ;
+  background-color: rgba(255, 255, 255, 0.2);
   top: 0;
   left: 0;
   width: 100%;
@@ -199,7 +199,7 @@
 }
 
 :local(.unavailable) {
-  color: white;
+  color: theme.$text1-color;
   display: flex;
   align-items: center;
   justify-content: center;
