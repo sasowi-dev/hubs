@@ -87,6 +87,7 @@ AFRAME.registerComponent("media-video", {
     this.snap = this.snap.bind(this);
     this.changeVolumeBy = this.changeVolumeBy.bind(this);
     this.togglePlaying = this.togglePlaying.bind(this);
+    this.setupAudio = this.setupAudio.bind(this);
 
     this.audioSystem = this.el.sceneEl.systems["hubs-systems"].audioSystem;
 
@@ -176,6 +177,7 @@ AFRAME.registerComponent("media-video", {
       }
     };
     APP.store.addEventListener("statechanged", this.onPreferenceChanged);
+    this.el.addEventListener("audio_type_changed", this.setupAudio);
   },
 
   play() {
@@ -854,6 +856,7 @@ AFRAME.registerComponent("media-video", {
     }
 
     window.APP.store.removeEventListener("statechanged", this.onPreferenceChanged);
+    this.el.addEventListener("audio_type_changed", this.setupAudio);
   },
 
   removeAudio() {

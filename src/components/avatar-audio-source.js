@@ -89,6 +89,8 @@ AFRAME.registerComponent("avatar-audio-source", {
   },
 
   init() {
+    this.createAudio = this.createAudio.bind(this);
+
     this.audioSystem = this.el.sceneEl.systems["hubs-systems"].audioSystem;
     // We subscribe to audio stream notifications for this peer to update the audio source
     // This could happen in case there is an ICE failure that requires a transport recreation.
@@ -105,6 +107,7 @@ AFRAME.registerComponent("avatar-audio-source", {
       }
     };
     APP.store.addEventListener("statechanged", this.onPreferenceChanged);
+    this.el.addEventListener("audio_type_changed", this.createAudio);
   },
 
   async _onStreamUpdated(peerId, kind) {
@@ -131,6 +134,9 @@ AFRAME.registerComponent("avatar-audio-source", {
 
   remove: function() {
     APP.dialog.off("stream_updated", this._onStreamUpdated);
+
+    window.APP.store.removeEventListener("statechanged", this.onPreferenceChanged);
+    this.el.removeEventListener("audio_type_changed", this.createAudio);
 
     APP.audios.delete(this.el);
     APP.sourceType.delete(this.el);
@@ -271,6 +277,9 @@ AFRAME.registerComponent("audio-target", {
       this.connectAudio();
     }, 0);
     this.el.setAttribute("audio-zone-source");
+
+    this.createAudio = this.createAudio.bind(this);
+    this.el.addEventListener("audio_type_changed", this.createAudio);
   },
 
   remove: function() {
