@@ -177,11 +177,13 @@ export class AudioSystem {
   }
 
   addAudio(mixerTrack, audioNode) {
+    if (!audioNode) return;
     this.removeAudio(audioNode);
     audioNode.gain.connect(this.mixer[mixerTrack]);
   }
 
   removeAudio(audioNode) {
+    if (!audioNode) return;
     audioNode.gain.disconnect();
     audioNode.sourceType !== "empty" && audioNode.disconnect();
   }
