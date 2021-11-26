@@ -12,8 +12,8 @@ export default {
 export const Base = () => (
   <RoomLayout
     viewport={
-      <Tip onDismiss={() => {}} dismissLabel="Skip">
-        {"Welcome to Mozilla Hubs! Let's take a quick tour. 👋 Click and drag to look around."}
+      <Tip onDismiss={() => {}} dismissLabel="건너뛰기">
+        {"어서 오세요! 클릭하고 드래그하여 구경해 보세요."}
       </Tip>
     }
   />

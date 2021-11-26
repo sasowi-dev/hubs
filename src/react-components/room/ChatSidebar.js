@@ -81,7 +81,7 @@ export function ChatLengthWarning({ messageLength, maxLength }) {
         [styles.warningTextColor]: messageLength > maxLength
       })}
     >
-      <FormattedMessage id="chat-message-input.warning-max-characters" defaultMessage="Max characters" />
+      <FormattedMessage id="chat-message-input.warning-max-characters" defaultMessage="최대 글자 수" />
       {` (${messageLength}/${maxLength})`}
     </p>
   );
@@ -100,7 +100,7 @@ export function ChatInput({ warning, isOverMaxLength, ...props }) {
       <TextAreaInput
         textInputStyles={styles.chatInputTextAreaStyles}
         className={classNames({ [styles.warningBorder]: isOverMaxLength })}
-        placeholder={intl.formatMessage({ id: "chat-sidebar.input.placeholder", defaultMessage: "Message..." })}
+        placeholder={intl.formatMessage({ id: "chat-sidebar.input.placeholder", defaultMessage: "메시지 전송..." })}
         {...props}
       />
       {warning}
@@ -115,13 +115,13 @@ ChatInput.propTypes = {
 };
 
 const enteredMessages = defineMessages({
-  room: { id: "chat-sidebar.system-message.entered-room", defaultMessage: "{name} entered the room." },
-  lobby: { id: "chat-sidebar.system-message.entered-lobby", defaultMessage: "{name} entered the lobby." }
+  room: { id: "chat-sidebar.system-message.entered-room", defaultMessage: "{name}이 방에 들어왔습니다." },
+  lobby: { id: "chat-sidebar.system-message.entered-lobby", defaultMessage: "{name}이 로비에 들어왔습니다." }
 });
 
 const joinedMessages = defineMessages({
-  lobby: { id: "chat-sidebar.system-message.joined-lobby", defaultMessage: "{name} joined the lobby." },
-  room: { id: "chat-sidebar.system-message.joined-room", defaultMessage: "{name} joined the room." }
+  lobby: { id: "chat-sidebar.system-message.joined-lobby", defaultMessage: "{name}이 로비에 왔습니다." },
+  room: { id: "chat-sidebar.system-message.joined-room", defaultMessage: "{name}이 방에 왔습니다." }
 });
 
 export const LogMessageType = {
@@ -151,35 +151,35 @@ export const LogMessageType = {
 const logMessages = defineMessages({
   [LogMessageType.roomEntryRequired]: {
     id: "chat-sidebar.log-message.room-entry-required",
-    defaultMessage: "You must enter the room to use this command."
+    defaultMessage: "이 명령어는 방 내에서만 사용할 수 있습니다."
   },
   [LogMessageType.flyModeDisabled]: {
     id: "chat-sidebar.log-message.fly-mode-disabled",
-    defaultMessage: "Fly mode disabled."
+    defaultMessage: "비행 모드 비활성화됨."
   },
   [LogMessageType.flyModeEnabled]: {
     id: "chat-sidebar.log-message.fly-mode-enabled",
-    defaultMessage: "Fly mode enabled."
+    defaultMessage: "비행 모드 활성화됨."
   },
   [LogMessageType.unauthorizedSceneChange]: {
     id: "chat-sidebar.log-message.unauthorized-scene-change",
-    defaultMessage: "You do not have permission to change the scene."
+    defaultMessage: "분위기를 변경할 권한이 없습니다."
   },
   [LogMessageType.invalidSceneUrl]: {
     id: "chat-sidebar.log-message.invalid-scene-url",
-    defaultMessage: "This URL does not point to a scene or valid GLB."
+    defaultMessage: "올바른 GLB나 배경으로 연결되지 않습니다."
   },
   [LogMessageType.unauthorizedRoomRename]: {
     id: "chat-sidebar.log-message.unauthorized-room-rename",
-    defaultMessage: "You do not have permission to rename this room."
+    defaultMessage: "방 이름을 변경할 권한이 없습니다."
   },
   [LogMessageType.captureUnavailable]: {
     id: "chat-sidebar.log-message.capture-unavailable",
-    defaultMessage: "Capture unavailable."
+    defaultMessage: "캡쳐를 사용할 수 없습니다."
   },
   [LogMessageType.captureStopped]: {
     id: "chat-sidebar.log-message.capture-stopped",
-    defaultMessage: "Capture stopped."
+    defaultMessage: "캡쳐 정지됨."
   },
   [LogMessageType.captureStarted]: {
     id: "chat-sidebar.log-message.capture-started",
@@ -220,19 +220,19 @@ const logMessages = defineMessages({
   },
   [LogMessageType.audioSuspended]: {
     id: "chat-sidebar.log-message.audio-suspended",
-    defaultMessage: "Audio has been suspended, click somewhere in the room to resume the audio."
+    defaultMessage: "오디오가 정지 되었습니다. 화면의 아무 곳이나 눌러 오디오를 활성화 하세요."
   },
   [LogMessageType.audioResumed]: {
     id: "chat-sidebar.log-message.audio-resumed",
-    defaultMessage: "Audio has been resumed."
+    defaultMessage: "오디오가 재활성화 되었습니다."
   },
   [LogMessageType.joinFailed]: {
     id: "chat-sidebar.log-message.join-failed",
-    defaultMessage: "Failed to join room: {message}"
+    defaultMessage: "{message} 접속에 실패했습니다."
   },
   [LogMessageType.avatarChanged]: {
     id: "chat-sidebar.log-message.avatar-changed",
-    defaultMessage: "Your avatar has been changed."
+    defaultMessage: "아바타가 변경되었습니다."
   }
 });
 
@@ -247,7 +247,7 @@ export function formatSystemMessage(entry, intl) {
       return (
         <FormattedMessage
           id="chat-sidebar.system-message.leave"
-          defaultMessage="{name} left."
+          defaultMessage="{name}이 나갔습니다."
           values={{ name: <b>{entry.name}</b> }}
         />
       );
@@ -255,7 +255,7 @@ export function formatSystemMessage(entry, intl) {
       return (
         <FormattedMessage
           id="chat-sidebar.system-message.name-change"
-          defaultMessage="{oldName} is now known as {newName}"
+          defaultMessage="{oldName}은 앞으로 {newName}입니다."
           values={{ oldName: <b>{entry.oldName}</b>, newName: <b>{entry.newName}</b> }}
         />
       );
@@ -263,7 +263,7 @@ export function formatSystemMessage(entry, intl) {
       return (
         <FormattedMessage
           id="chat-sidebar.system-message.scene-change"
-          defaultMessage="{name} changed the scene to {sceneName}"
+          defaultMessage="{name}이 분위기를 {sceneName}로 변경했습니다."
           values={{ name: <b>{entry.name}</b>, sceneName: <b>{entry.sceneName}</b> }}
         />
       );
@@ -271,7 +271,7 @@ export function formatSystemMessage(entry, intl) {
       return (
         <FormattedMessage
           id="chat-sidebar.system-message.hub-name-change"
-          defaultMessage="{name} changed the name of the room to {hubName}"
+          defaultMessage="{name}이 방제를 {hubName}로 변경했습니다."
           values={{ name: <b>{entry.name}</b>, hubName: <b>{entry.hubName}</b> }}
         />
       );
@@ -279,7 +279,7 @@ export function formatSystemMessage(entry, intl) {
       return (
         <FormattedMessage
           id="chat-sidebar.system-message.hub-change"
-          defaultMessage="You are now in {hubName}"
+          defaultMessage="이제 {hubName}에 들어왔습니다."
           values={{ hubName: <b>{entry.hubName}</b> }}
         />
       );
@@ -391,7 +391,7 @@ ChatMessageList.propTypes = {
 export function ChatSidebar({ onClose, children, ...rest }) {
   return (
     <Sidebar
-      title={<FormattedMessage id="chat-sidebar.title" defaultMessage="Chat" />}
+      title={<FormattedMessage id="chat-sidebar.title" defaultMessage="채팅" />}
       beforeTitle={<CloseButton onClick={onClose} />}
       contentClassName={styles.content}
       disableOverflowScroll
@@ -415,7 +415,7 @@ export function ChatToolbarButton(props) {
       {...props}
       icon={<ChatIcon />}
       preset="accent4"
-      label={<FormattedMessage id="chat-toolbar-button" defaultMessage="Chat" />}
+      label={<FormattedMessage id="chat-toolbar-button" defaultMessage="채팅" />}
     />
   );
 }

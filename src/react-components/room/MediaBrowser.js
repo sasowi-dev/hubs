@@ -66,7 +66,7 @@ export function MediaBrowser({
             <>
               <StarIcon className={styles.favoriteIcon} />
               <h3>
-                <FormattedMessage id="media-browser.favorites-header" defaultMessage="Favorite Rooms" />
+                <FormattedMessage id="media-browser.favorites-header" defaultMessage="좋아하는 방" />
               </h3>
             </>
           ) : (

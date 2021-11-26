@@ -23,18 +23,18 @@ export function LoadingScreenContainer({ onLoaded, scene }) {
   const infoMessages = useMemo(
     () => [
       {
-        heading: intl.formatMessage({ id: "loading-screen.heading.tip", defaultMessage: "Tip:" }),
+        heading: intl.formatMessage({ id: "loading-screen.heading.tip", defaultMessage: "팁:" }),
         message: intl.formatMessage({
           id: "loading-screen.message.keyboard-controls",
-          defaultMessage: "Press the Q & E keys to turn left and right."
+          defaultMessage: "Q 및 E 키를 눌러 방향을 바꿀 수 있어요."
         })
       },
       {
-        heading: intl.formatMessage({ id: "loading-screen.heading.whats-new", defaultMessage: "What's New?" }),
+        heading: intl.formatMessage({ id: "loading-screen.heading.whats-new", defaultMessage: "뭐가 새로워요?" }),
         message: intl.formatMessage(
           {
             id: "loading-screen.message.whats-new",
-            defaultMessage: "You can now set the default locale in your preferences. <a>Read More</a>"
+            defaultMessage: "설정에서 기본 언어를 바꿀 수 있어요. <a>더 보기</a>"
           },
           {
             // eslint-disable-next-line react/display-name

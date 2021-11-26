@@ -34,7 +34,7 @@ export function InviteLinkInputField({ fetchingInvite, inviteUrl, onRevokeInvite
         fetchingInvite
           ? intl.formatMessage({
               id: "invite-link-input-field.generating-invite",
-              defaultMessage: "Generating invite..."
+              defaultMessage: "초대장 생성 중..."
             })
           : inviteUrl
       }
@@ -43,18 +43,18 @@ export function InviteLinkInputField({ fetchingInvite, inviteUrl, onRevokeInvite
         !fetchingInvite &&
         (showRevokeConfirmation ? (
           <>
-            <FormattedMessage id="invite-link-input-field.revoke-confirm" defaultMessage="are you sure?" />{" "}
+            <FormattedMessage id="invite-link-input-field.revoke-confirm" defaultMessage="정말인가요?" />{" "}
             <IconButton className={styles.confirmRevokeButton} onClick={confirmRevokeInvite}>
-              <FormattedMessage id="invite-link-input-field.revoke-confirm-yes" defaultMessage="yes" />
+              <FormattedMessage id="invite-link-input-field.revoke-confirm-yes" defaultMessage="예" />
             </IconButton>{" "}
             /{" "}
             <IconButton className={styles.confirmRevokeButton} onClick={cancelConfirmRevokeInvite}>
-              <FormattedMessage id="invite-link-input-field.revoke-confirm-no" defaultMessage="no" />
+              <FormattedMessage id="invite-link-input-field.revoke-confirm-no" defaultMessage="아니오" />
             </IconButton>
           </>
         ) : (
           <IconButton className={styles.confirmRevokeButton} onClick={revokeInvite}>
-            <FormattedMessage id="invite-link-input-field.revoke" defaultMessage="revoke" />
+            <FormattedMessage id="invite-link-input-field.revoke" defaultMessage="만료시키기" />
           </IconButton>
         ))
       }

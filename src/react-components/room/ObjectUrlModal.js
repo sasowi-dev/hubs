@@ -62,7 +62,7 @@ export function ObjectUrlModal({ showModelCollectionLink, modelCollectionUrl, on
           {showModelCollectionLink ? (
             <FormattedMessage
               id="object-url-modal.message-with-collection"
-              defaultMessage="Upload or paste a URL to an image, video, model, or scene. Models can be found on <sketchfablink>Sketchfab</sketchfablink> or our <collectionlink>collection</collectionlink>."
+              defaultMessage="분위기,사진,동영상,모델을 붙여넣으세요. 분위기는 <sketchfablink>Sketchfab</sketchfablink>이나 저희의 <collectionlink>창작마당</collectionlink>에서 볼 수 있습니다."
               values={{
                 // eslint-disable-next-line react/display-name
                 sketchfablink: chunks => (
@@ -85,7 +85,7 @@ export function ObjectUrlModal({ showModelCollectionLink, modelCollectionUrl, on
           ) : (
             <FormattedMessage
               id="object-url-modal.message"
-              defaultMessage="Upload or paste a URL to an image, video, model, or scene. Models can be found on <sketchfablink>Sketchfab</sketchfablink>."
+              defaultMessage="분위기,사진,동영상,모델을 붙여넣으세요. 분위기는 <sketchfablink>Sketchfab</sketchfablink>에서 볼 수 있습니다."
               values={{
                 // eslint-disable-next-line react/display-name
                 sketchfablink: chunks => (
@@ -103,7 +103,7 @@ export function ObjectUrlModal({ showModelCollectionLink, modelCollectionUrl, on
         </p>
         <TextInputField
           name="url"
-          label={<FormattedMessage id="object-url-modal.url-field-label" defaultMessage="Object URL or File" />}
+          label={<FormattedMessage id="object-url-modal.url-field-label" defaultMessage="URL이나 파일" />}
           placeholder="https://example.com/avatar.glb"
           type={hasFile ? "text" : "url"}
           value={fileName || url || ""}
@@ -124,12 +124,12 @@ export function ObjectUrlModal({ showModelCollectionLink, modelCollectionUrl, on
           description={
             <FormattedMessage
               id="object-url-modal.url-field-description"
-              defaultMessage="Accepts glb, png, jpg, gif, mp4, and mp3 files"
+              defaultMessage="glb, png, jpg, gif, mp4, mp3 파일 허용됨"
             />
           }
         />
         <Button type="submit" preset="accept">
-          <FormattedMessage id="object-url-modal.create-object-button" defaultMessage="Create Object" />
+          <FormattedMessage id="object-url-modal.create-object-button" defaultMessage="물건 생성" />
         </Button>
       </Column>
     </Modal>

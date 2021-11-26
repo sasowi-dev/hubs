@@ -9,7 +9,7 @@ import { FormattedMessage } from "react-intl";
 export function AvatarSettingsSidebar({ className, showBackButton, onBack, onClose, ...rest }) {
   return (
     <Sidebar
-      title={<FormattedMessage id="avatar-settings-sidebar.title" defaultMessage="Avatar Settings" />}
+      title={<FormattedMessage id="avatar-settings-sidebar.title" defaultMessage="아바타 설정" />}
       beforeTitle={showBackButton ? <BackButton onClick={onBack} /> : <CloseButton onClick={onClose} />}
       className={className}
     >

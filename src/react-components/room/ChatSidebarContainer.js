@@ -221,13 +221,13 @@ export function ChatSidebarContainer({ scene, canSpawnMessages, presences, occup
     if (discordBridges.length === 0) {
       placeholder = intl.formatMessage({
         id: "chat-sidebar-container.input-placeholder.empty-room",
-        defaultMessage: "Nobody is here yet..."
+        defaultMessage: "아직 아무도 없어 보여요..."
       });
     } else {
       placeholder = intl.formatMessage(
         {
           id: "chat-sidebar-container.input-placeholder.empty-room-bot",
-          defaultMessage: "Send message to {discordChannels}"
+          defaultMessage: "{discordChannels}에 메시지 전송하기"
         },
         { discordChannels: discordSnippet }
       );
@@ -238,7 +238,7 @@ export function ChatSidebarContainer({ scene, canSpawnMessages, presences, occup
         {
           id: "chat-sidebar-container.input-placeholder.occupants",
           defaultMessage:
-            "{occupantCount, plural, one {Send message to one other...} other {Send message to {occupantCount} others...} }"
+            "{occupantCount, plural, one {1명에게 메시지 보내기...} other {{occupantCount}명에게 메시지 보내기...} }"
         },
         { discordChannels: discordSnippet, occupantCount: occupantCount - 1 }
       );

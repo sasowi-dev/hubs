@@ -13,11 +13,11 @@ export const AutoExitReason = {
 const messages = defineMessages({
   [AutoExitReason.concurrentSession]: {
     id: "auto-exit-warning-modal.reason.concurrent-session",
-    defaultMessage: "You have started another session."
+    defaultMessage: "다른 세션을 시작했어요."
   },
   [AutoExitReason.idle]: {
     id: "auto-exit-warning-modal.reason.idle",
-    defaultMessage: "You have been idle for too long."
+    defaultMessage: "너무 오랫동안 활동이 없었어요."
   }
 });
 
@@ -30,7 +30,7 @@ export function AutoExitWarningModal({ onCancel, reason, secondsRemaining }) {
         <b>
           <FormattedMessage
             id="auto-exit-warning-modal.message"
-            defaultMessage="Auto-ending session in {secondsRemaining} seconds"
+            defaultMessage="{secondsRemaining}초 뒤에 세션이 종료됩니다."
             values={{ secondsRemaining }}
           />
         </b>

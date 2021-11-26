@@ -19,39 +19,39 @@ export const ExitReason = {
 const messages = defineMessages({
   [ExitReason.exited]: {
     id: "exited-room-screen.reason.exited",
-    defaultMessage: "Your session has ended. Refresh your browser to start a new one."
+    defaultMessage: "세션이 만료되었습니다. 새로고침 해 주세요."
   },
   [ExitReason.closed]: {
     id: "exited-room-screen.reason.closed",
-    defaultMessage: "This room is no longer available."
+    defaultMessage: "이 방은 더이상 사용할 수 없습니다."
   },
   [ExitReason.denied]: {
     id: "exited-room-screen.reason.denied",
-    defaultMessage: "You are not permitted to join this room. Please request permission from the room creator."
+    defaultMessage: "이 방을 참여할 권한이 없습니다. 방의 생성자에게 권한을 요청하세요."
   },
   [ExitReason.disconnected]: {
     id: "exited-room-screen.reason.disconnected",
-    defaultMessage: "You have disconnected from the room. Refresh the page to try to reconnect."
+    defaultMessage: "방을 새로고침하여 재 연결 하세요."
   },
   [ExitReason.left]: {
     id: "exited-room-screen.reason.left",
-    defaultMessage: "You have left the room."
+    defaultMessage: "방에서 퇴장하였습니다."
   },
   [ExitReason.full]: {
     id: "exited-room-screen.reason.full",
-    defaultMessage: "This room is full, please try again later."
+    defaultMessage: "이 방에 사람이 너무 많습니다."
   },
   [ExitReason.sceneError]: {
     id: "exited-room-screen.reason.scene-error",
-    defaultMessage: "The scene failed to load."
+    defaultMessage: "배경을 로드하는데 실패했습니다."
   },
   [ExitReason.connectError]: {
     id: "exited-room-screen.reason.connect-error",
-    defaultMessage: "Unable to connect to this room, please try again later."
+    defaultMessage: "방에 연결할 수 없습니다."
   },
   [ExitReason.versionMismatch]: {
     id: "exited-room-screen.reason.version-mismatch",
-    defaultMessage: "The version you deployed is not available yet. Your browser will refresh in 5 seconds."
+    defaultMessage: "비정상적인 SSWVerse 버전입니다. 5초 뒤 새로고침 합니다."
   }
 });
 
@@ -67,14 +67,14 @@ export function ExitedRoomScreen({ reason, showTerms, termsUrl, logoSrc, showSou
         <b>
           <FormattedMessage
             id="exited-room-screen.no-longer-availible"
-            defaultMessage="Sorry, this room is no longer available."
+            defaultMessage="더 이상 이 방에 참여할 수 없습니다."
           />
         </b>
         {showTerms && (
           <p>
             <FormattedMessage
               id="exited-room-screen.closed-room-tos"
-              defaultMessage="A room may be closed by the room owner, or if we receive reports that it violates our <toslink>Terms of Use</toslink>."
+              defaultMessage="<toslink>이용약관</toslink>을 위반하는 경우 방을 폐쇄할 수 있습니다."
               values={{
                 // eslint-disable-next-line react/display-name
                 toslink: chunks => (
@@ -89,7 +89,7 @@ export function ExitedRoomScreen({ reason, showTerms, termsUrl, logoSrc, showSou
         <p>
           <FormattedMessage
             id="exited-room-screen.contact-us"
-            defaultMessage="If you have questions, contact us at {contactEmail}."
+            defaultMessage="궁금한 점이 있다면 본 이메일로 연락해 주세요: {contactEmail}."
             values={{ contactEmail: <a href={`mailto:${contactEmail}`}>{contactEmail}</a> }}
           />
         </p>
@@ -97,7 +97,7 @@ export function ExitedRoomScreen({ reason, showTerms, termsUrl, logoSrc, showSou
           <p>
             <FormattedMessage
               id="exited-room-screen.source-link"
-              defaultMessage="If you'd like to run your own server, Hubs's source code is available on <a>GitHub</a>."
+              defaultMessage="직접 운영하고 싶다면, <a>GitHub</a>를 참고해 주세요."
               values={{
                 // eslint-disable-next-line react/display-name
                 a: chunks => <a href="https://github.com/mozilla/hubs">{chunks}</a>
@@ -107,7 +107,7 @@ export function ExitedRoomScreen({ reason, showTerms, termsUrl, logoSrc, showSou
         )}
 
         <Button as="a" preset="accept" href="/">
-          <FormattedMessage id="exited-room-screen.home-button" defaultMessage="Back to Home" />
+          <FormattedMessage id="exited-room-screen.home-button" defaultMessage="홈으로 돌아가기" />
         </Button>
       </>
     );
@@ -125,7 +125,7 @@ export function ExitedRoomScreen({ reason, showTerms, termsUrl, logoSrc, showSou
           <p>
             <FormattedMessage
               id="exited-room-screen.connect-tcp"
-              defaultMessage="You can try <a>connecting via TCP</a>, which may work better on some networks."
+              defaultMessage="<a>TCP로 연결</a>을 시도할 수 있습니다. 몇몇 네트워크에서는 더욱 안정적일 수 있습니다."
               values={{
                 // eslint-disable-next-line react/display-name
                 a: chunks => <a href={tcpUrl.toString()}>{chunks}</a>
@@ -137,7 +137,7 @@ export function ExitedRoomScreen({ reason, showTerms, termsUrl, logoSrc, showSou
           <p>
             <FormattedMessage
               id="exited-room-screen.create-room"
-              defaultMessage="You can also <a>create a new room</a>."
+              defaultMessage="<a>새 방을 생성</a>할 수도 있습니다."
               values={{
                 // eslint-disable-next-line react/display-name
                 a: chunks => <a href="/">{chunks}</a>
@@ -147,7 +147,7 @@ export function ExitedRoomScreen({ reason, showTerms, termsUrl, logoSrc, showSou
         )}
 
         <Button as="a" preset="accept" href={window.location.href}>
-          <FormattedMessage id="exited-room-screen.refresh-page-button" defaultMessage="Refresh Page" />
+          <FormattedMessage id="exited-room-screen.refresh-page-button" defaultMessage="페이지 새로고침" />
         </Button>
       </>
     );

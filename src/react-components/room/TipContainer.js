@@ -31,31 +31,31 @@ if (window.navigator.keyboard !== undefined && window.navigator.keyboard.getLayo
 const onboardingMessages = defineMessages({
   "tips.mobile.look": {
     id: "tips.mobile.look",
-    defaultMessage: "Welcome! 👋 Tap and drag to look around."
+    defaultMessage: "어서오세요! 터치하고 드래그하여 구경하세요."
   },
   "tips.mobile.locomotion": {
     id: "tips.mobile.locomotion",
-    defaultMessage: "Great! To move, pinch with two fingers."
+    defaultMessage: "잘 했어요! 엄지와 검지 손가락으로 확대하여 움직일 수 있어요."
   },
   "tips.mobile.invite": {
     id: "tips.mobile.invite",
-    defaultMessage: "Use the Invite button in the bottom left to share this room."
+    defaultMessage: "이 방을 공유하기 위해 공유 버튼을 이용할 수 있어요."
   },
   "tips.desktop.look": {
     id: "tips.desktop.look",
-    defaultMessage: "Welcome to {appName}! Let's take a quick tour. 👋 Click and drag to look around."
+    defaultMessage: "{appName}에 오신 것을 환영합니다! 간단하게 알아보자구요. 👋 클릭하고 드래그하여 구경하세요."
   },
   "tips.desktop.locomotion": {
     id: "tips.desktop.locomotion",
-    defaultMessage: "Use the {moveKeys} keys to move. Hold shift to boost."
+    defaultMessage: "{moveKeys}키를 눌러 움직이고 쉬프트 키를 눌러 더 빠르게 움직이세요."
   },
   "tips.desktop.turning": {
     id: "tips.desktop.turning",
-    defaultMessage: "Perfect. Use the {turnLeftKey} and {turnRightKey} keys to rotate."
+    defaultMessage: "완벽해요. {turnLeftKey}와 {turnRightKey} 키로 회전할 수 있어요."
   },
   "tips.desktop.invite": {
     id: "tips.desktop.invite",
-    defaultMessage: "Nobody else is here. Use the invite button in the bottom left to share this room."
+    defaultMessage: "아무도 없어 보여요. 공유하는 것은 어떨까요?"
   }
 });
 
@@ -70,7 +70,7 @@ function SkipDismissLabel() {
 export function FullscreenTip(props) {
   return (
     <Tip {...props} dismissLabel={<OkDismissLabel />}>
-      <FormattedMessage id="tips.fullscreen" defaultMessage="Entered fullscreen mode. Press Escape to show UI." />
+      <FormattedMessage id="tips.fullscreen" defaultMessage="전체화면 모드입니다. ESC 키를 눌러 UI를 확인해 주세요." />
     </Tip>
   );
 }
@@ -121,7 +121,7 @@ export function TipContainer({ hide, inLobby, inRoom, isStreaming, isEmbedded, s
 
     return (
       <Tip onDismiss={() => setLobbyTipDismissed(true)} dismissLabel={<OkDismissLabel />}>
-        <FormattedMessage id="tips.lobby" defaultMessage="You're in the lobby. Others cannot see or hear you." />
+        <FormattedMessage id="tips.lobby" defaultMessage="여기는 로비입니다. 아무도 당신을 보거나 들을 수 없어요." />
       </Tip>
     );
   } else if (inRoom) {
@@ -143,7 +143,7 @@ export function TipContainer({ hide, inLobby, inRoom, isStreaming, isEmbedded, s
         <Tip onDismiss={() => setStreamingTipDismissed(true)} dismissLabel={<OkDismissLabel />}>
           <FormattedMessage
             id="tips.streaming"
-            defaultMessage="Now broadcasting to the lobby. Exit streamer mode in the more menu when you're done."
+            defaultMessage="로비에서 방송중이에요."
           />
         </Tip>
       );
@@ -154,7 +154,7 @@ export function TipContainer({ hide, inLobby, inRoom, isStreaming, isEmbedded, s
         <Tip onDismiss={() => setBroadcastTipDismissed(true)} dismissLabel={<OkDismissLabel />}>
           <FormattedMessage
             id="tips.discord"
-            defaultMessage="Chat in this room is being bridged to {broadcastTarget} on Discord."
+            defaultMessage="채팅이 디스코드의 {broadcastTarget} 채널과 연동되고 있어요."
             values={{ broadcastTarget: discordBridges.map(channelName => "#" + channelName).join(", ") }}
           />
         </Tip>
@@ -166,7 +166,7 @@ export function TipContainer({ hide, inLobby, inRoom, isStreaming, isEmbedded, s
         <Tip onDismiss={() => setEmbeddedTipDismissed(true)} dismissLabel={<OkDismissLabel />}>
           <FormattedMessage
             id="tips.embedded"
-            defaultMessage="This room is embedded, so it may be visible to visitors on other websites."
+            defaultMessage="이 방은 활성화되어 있으므로 다른 사이트에서 볼 수 있어요."
           />
         </Tip>
       );

@@ -13,14 +13,14 @@ export function PromoteClientModal({ onClose, onConfirm, displayName }) {
         <p>
           <FormattedMessage
             id="promote-client-modal.message"
-            defaultMessage="Promoting a user will grant full access to room settings and moderation tools.{linebreak}Are you sure?"
+            defaultMessage="사용자에게 중재자 권한을 부여하면 관리자패널을 포함한 모든 것을 볼 수 있습니다.{linebreak}괜찮나요?"
             values={{ linebreak: <br /> }}
           />
         </p>
         <Button preset="accept" onClick={onConfirm}>
           <FormattedMessage
             id="promote-client-modal.confirm-prefix"
-            defaultMessage="Yes, promote {name}"
+            defaultMessage="좋아요. {name}에게 권한을 부여하세요."
             values={{ name: displayName }}
           />
         </Button>

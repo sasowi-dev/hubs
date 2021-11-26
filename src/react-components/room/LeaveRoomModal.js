@@ -15,7 +15,7 @@ export const LeaveReason = {
 const reasonMessages = defineMessages({
   [LeaveReason.leaveRoom]: {
     id: "leave-room-modal.leave-room.message",
-    defaultMessage: "Are you sure you want to leave the room?"
+    defaultMessage: "정말 방을 나갈까요?"
   },
   [LeaveReason.joinRoom]: {
     id: "leave-room-modal.join-room.message",
@@ -30,15 +30,15 @@ const reasonMessages = defineMessages({
 const confirmationMessages = defineMessages({
   [LeaveReason.leaveRoom]: {
     id: "leave-room-modal.leave-room.confirm",
-    defaultMessage: "Leave Room"
+    defaultMessage: "방 퇴장하기"
   },
   [LeaveReason.joinRoom]: {
     id: "leave-room-modal.join-room.confirm",
-    defaultMessage: "Join Room"
+    defaultMessage: "방 만들기"
   },
   [LeaveReason.createRoom]: {
     id: "leave-room-modal.create-room.confirm",
-    defaultMessage: "Leave and Create Room"
+    defaultMessage: "퇴장하고 방 만들기"
   }
 });
 

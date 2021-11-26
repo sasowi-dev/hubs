@@ -35,7 +35,7 @@ export function MicSetupModal({
 }) {
   return (
     <Modal
-      title={<FormattedMessage id="mic-setup-modal.title" defaultMessage="Microphone Setup" />}
+      title={<FormattedMessage id="mic-setup-modal.title" defaultMessage="마이크 설정" />}
       beforeTitle={<BackButton onClick={onBack} />}
       className={className}
       {...rest}
@@ -44,7 +44,7 @@ export function MicSetupModal({
         <p>
           <FormattedMessage
             id="mic-setup-modal.check-mic"
-            defaultMessage="Check your microphone and audio before entering."
+            defaultMessage="접속 전 마이크를 점검하세요."
           />
         </p>
         <div className={styles.audioCheckContainer}>
@@ -58,9 +58,9 @@ export function MicSetupModal({
             }
             label={
               microphoneEnabled ? (
-                <FormattedMessage id="mic-setup-modal.test-mic" defaultMessage="Talk to Test Microphone" />
+                <FormattedMessage id="mic-setup-modal.test-mic" defaultMessage="마이크 테스트를 위해 말해보세요." />
               ) : (
-                <FormattedMessage id="mic-setup-modal.mic-disabled" defaultMessage="Microphone Disabled" />
+                <FormattedMessage id="mic-setup-modal.mic-disabled" defaultMessage="마이크 비활성화됨" />
               )
             }
             className={classNames(styles.largeToolbarButton, styles.micButton)}
@@ -108,7 +108,7 @@ export function MicSetupModal({
           </ToolbarButton>
           <ToolbarButton
             icon={soundPlaying ? <VolumeHighIcon width={48} height={48} /> : <VolumeOffIcon width={48} height={48} />}
-            label={<FormattedMessage id="mic-setup-modal.test-audio" defaultMessage="Click to Test Audio" />}
+            label={<FormattedMessage id="mic-setup-modal.test-audio" defaultMessage="오디오 테스트하기" />}
             preset={soundPlaying ? "primary" : "basic"}
             className={styles.largeToolbarButton}
             onClick={onPlaySound}
@@ -118,13 +118,13 @@ export function MicSetupModal({
         <>
           <SelectInputField value={selectedMicrophone} options={microphoneOptions} onChange={onChangeMicrophone} />
           <ToggleInput
-            label={<FormattedMessage id="mic-setup-modal.mute-mic-toggle" defaultMessage="Mute My Microphone" />}
+            label={<FormattedMessage id="mic-setup-modal.mute-mic-toggle" defaultMessage="내 마이크 음소거하기" />}
             checked={microphoneMuted}
             onChange={onChangeMicrophoneMuted}
           />
         </>
         <Button preset="accept" onClick={onEnterRoom}>
-          <FormattedMessage id="mic-setup-modal.enter-room-button" defaultMessage="Enter Room" />
+          <FormattedMessage id="mic-setup-modal.enter-room-button" defaultMessage="방 참여" />
         </Button>
       </Column>
     </Modal>

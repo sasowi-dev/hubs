@@ -18,7 +18,7 @@ const iconSheet = {
 export function EmojiPicker(props) {
   return (
     <Picker
-      title="Pick an emoji!"
+      title="이모티콘을 선택하세요!"
       color="var(--tab-highlight-color)"
       // eslint-disable-next-line no-unused-vars
       backgroundImageFn={(set, sheetSize) => iconSheet[sheetSize]}

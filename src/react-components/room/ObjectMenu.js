@@ -43,9 +43,9 @@ export function ObjectMenu({
       </IconButton>
       <IconButton className={styles.lightsButton} onClick={onToggleLights}>
         {lightsEnabled ? (
-          <LightbulbOutlineIcon title="Turn Lights Off" width={24} height={24} />
+          <LightbulbOutlineIcon title="불 끄기" width={24} height={24} />
         ) : (
-          <LightbulbIcon title="Turn Lights On" width={24} height={24} />
+          <LightbulbIcon title="불 끄기" width={24} height={24} />
         )}
       </IconButton>
       <div className={styles.objectMenuContainer}>
@@ -57,9 +57,9 @@ export function ObjectMenu({
             <h5>{title}</h5>
             <IconButton className={styles.lightsHeaderButton} onClick={onToggleLights}>
               {lightsEnabled ? (
-                <LightbulbOutlineIcon title="Turn Lights Off" width={16} height={16} />
+                <LightbulbOutlineIcon title="불 끄기" width={16} height={16} />
               ) : (
-                <LightbulbIcon title="Turn Lights On" width={16} height={16} />
+                <LightbulbIcon title="불 켜기" width={16} height={16} />
               )}
             </IconButton>
           </div>

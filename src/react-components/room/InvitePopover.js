@@ -19,12 +19,12 @@ function InvitePopoverContent({ url, shortUrl, code, embed, inviteRequired, fetc
       ) : (
         <>
           <CopyableTextInputField
-            label={<FormattedMessage id="invite-popover.room-link" defaultMessage="Room Link" />}
+            label={<FormattedMessage id="invite-popover.room-link" defaultMessage="방 주소" />}
             value={url}
             buttonPreset="accent3"
           />
           <CopyableTextInputField
-            label={<FormattedMessage id="invite-popover.room-code" defaultMessage="Room Code" />}
+            label={<FormattedMessage id="invite-popover.room-code" defaultMessage="방 코드" />}
             value={code}
             buttonPreset="accent4"
             description={
@@ -37,7 +37,7 @@ function InvitePopoverContent({ url, shortUrl, code, embed, inviteRequired, fetc
             }
           />
           <CopyableTextInputField
-            label={<FormattedMessage id="invite-popover.embed-code" defaultMessage="Embed Code" />}
+            label={<FormattedMessage id="invite-popover.embed-code" defaultMessage="코드 퍼가기" />}
             value={embed}
             buttonPreset="accent5"
           />

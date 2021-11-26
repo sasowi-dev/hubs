@@ -43,7 +43,7 @@ export function RoomEntryModal({
           )}
         <div className={styles.roomName}>
           <h5>
-            <FormattedMessage id="room-entry-modal.room-name-label" defaultMessage="Room Name" />
+            <FormattedMessage id="room-entry-modal.room-name-label" defaultMessage="방제" />
           </h5>
           <p>{roomName}</p>
         </div>
@@ -52,7 +52,7 @@ export function RoomEntryModal({
             <Button preset="accent4" onClick={onJoinRoom}>
               <EnterIcon />
               <span>
-                <FormattedMessage id="room-entry-modal.join-room-button" defaultMessage="Join Room" />
+                <FormattedMessage id="room-entry-modal.join-room-button" defaultMessage="방 참여" />
               </span>
             </Button>
           )}
@@ -60,7 +60,7 @@ export function RoomEntryModal({
             <Button preset="accent5" onClick={onEnterOnDevice}>
               <VRIcon />
               <span>
-                <FormattedMessage id="room-entry-modal.enter-on-device-button" defaultMessage="Enter On Device" />
+                <FormattedMessage id="room-entry-modal.enter-on-device-button" defaultMessage="기기에서 참여" />
               </span>
             </Button>
           )}
@@ -79,7 +79,7 @@ export function RoomEntryModal({
                 <Button preset="transparent" className={styleUtils.showLg} onClick={onOptions}>
                   <SettingsIcon />
                   <span>
-                    <FormattedMessage id="room-entry-modal.options-button" defaultMessage="Options" />
+                    <FormattedMessage id="room-entry-modal.options-button" defaultMessage="옵션" />
                   </span>
                 </Button>
               </>

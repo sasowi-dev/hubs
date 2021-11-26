@@ -11,12 +11,12 @@ import { Column } from "../layout/Column";
 export function AvatarUrlModal({ onSubmit, onClose }) {
   const { handleSubmit, register } = useForm();
   return (
-    <Modal title="Custom Avatar URL" beforeTitle={<CloseButton onClick={onClose} />}>
+    <Modal title="커스텀 아바타 주소" beforeTitle={<CloseButton onClick={onClose} />}>
       <Column as="form" padding center onSubmit={handleSubmit(onSubmit)}>
         <TextInputField
           name="url"
-          label={<FormattedMessage id="avatar-url-modal.avatar-url-label" defaultMessage="Avatar GLB URL" />}
-          placeholder="https://example.com/avatar.glb"
+          label={<FormattedMessage id="avatar-url-modal.avatar-url-label" defaultMessage="아바타의 GLB 파일 주소" />}
+          placeholder="https://wa.sans.undertale.know/very/hard/avatar.glb"
           type="url"
           required
           ref={register}
@@ -24,7 +24,7 @@ export function AvatarUrlModal({ onSubmit, onClose }) {
             <a href="https://hubs.mozilla.com/docs/intro-avatars.html" target="_blank" rel="noopener noreferrer">
               <FormattedMessage
                 id="avatar-url-modal.custom-avatar-docs-link"
-                defaultMessage="Learn more about custom avatars"
+                defaultMessage="커스텀 아바타에 대해 알아보기"
               />
             </a>
           }
